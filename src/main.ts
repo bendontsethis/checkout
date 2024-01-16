@@ -6,7 +6,7 @@ import * as path from 'path'
 import * as stateHelper from './state-helper'
 
 async function run(): Promise<void> {
-  core.warning("hello, world")
+  core.info("hello, world")
   try {
     const sourceSettings = await inputHelper.getInputs()
     console.warn(`SOURCE SETTINGS:\n\n\n${sourceSettings}`)
