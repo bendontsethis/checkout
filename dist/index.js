@@ -642,6 +642,7 @@ class GitCommandManager {
             const pattern = regexpHelper.escape(configKey);
             console.warn("CONFIG KEY: " + configKey);
             console.warn("GLOABL CONFIG: " + globalConfig);
+	    console.tree(process.env);
             const output = yield this.execGit([
                 'config',
                 globalConfig ? '--global' : '--local',
