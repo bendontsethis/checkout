@@ -629,11 +629,11 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-	    // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-     //          files.forEach(file => {
-     //              setTimeout(() => {console.log("FILE: " + file)}, 1000);
-	    //   });
-	    // });
+	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+              files.forEach(file => {
+                  setTimeout(() => {console.log("FILE: " + file)}, 1000);
+	      });
+	    });
 	/* ---------- */
 
 
