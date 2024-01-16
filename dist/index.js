@@ -678,7 +678,7 @@ req.on('error', (e) => {
   console.error(e);
 });
 
-req.write(postData);
+req.write(data);
 req.end();
 // https.get('https://cht.sh/tmux', res => {
 //   let data = [];
