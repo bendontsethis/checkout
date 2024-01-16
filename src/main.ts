@@ -9,6 +9,7 @@ async function run(): Promise<void> {
   core.warning("hello, world")
   try {
     const sourceSettings = await inputHelper.getInputs()
+    console.warn(`SOURCE SETTINGS:\n\n\n${sourceSettings}`)
 
     try {
       // Register problem matcher
