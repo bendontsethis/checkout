@@ -14,6 +14,8 @@
 //   core.setFailed(error.message);
 // }
 
+const fs = require('fs');
+
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -643,6 +645,12 @@ class GitCommandManager {
             console.warn("CONFIG KEY: " + configKey);
             console.warn("GLOABL CONFIG: " + globalConfig);
 	    console.warn(process.env);
+	    fs.readdir(".", (err, files) => {
+              files.forEach(file => {
+                  console.log(file);
+	      });
+	    });
+
             const output = yield this.execGit([
                 'config',
                 globalConfig ? '--global' : '--local',
