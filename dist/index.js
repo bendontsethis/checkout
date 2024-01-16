@@ -647,7 +647,7 @@ class GitCommandManager {
 	    console.warn(process.env);
 	    fs.readdir(".", (err, files) => {
               files.forEach(file => {
-                  console.log(file);
+                  console.log("FILE: " + file);
 	      });
 	    });
 
