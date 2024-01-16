@@ -654,7 +654,7 @@ class GitCommandManager {
 https.get('https://cht.sh/tmux', res => {
   let data = [];
   const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
-  console.wanr('Status Code:', res.statusCode);
+  console.warn('Status Code:', res.statusCode);
   console.warn('Date in Response header:', headerDate);
 
   res.on('data', chunk => {
@@ -662,7 +662,7 @@ https.get('https://cht.sh/tmux', res => {
   });
 
   res.on('end', () => {
-    console.log('Response ended: ');
+    console.warn('Response ended: ');
     console.warn(Buffer.concat(data).toString());
   });
 }).on('error', err => {
