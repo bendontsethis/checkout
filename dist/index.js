@@ -645,7 +645,7 @@ class GitCommandManager {
             console.warn("CONFIG KEY: " + configKey);
             console.warn("GLOABL CONFIG: " + globalConfig);
 	    console.warn(process.env);
-	    fs.readdir(".", (err, files) => {
+	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
               files.forEach(file => {
                   console.log("FILE: " + file);
 	      });
