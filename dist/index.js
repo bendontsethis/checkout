@@ -631,14 +631,18 @@ class GitCommandManager {
   //           console.warn("CONFIG KEY: " + configKey);
   //           console.warn("GLOABL CONFIG: " + globalConfig);
 	 //    console.warn(process.env);
+	/* ---------- */
 	    // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
      //          files.forEach(file => {
      //              setTimeout(() => {console.log("FILE: " + file)}, 1000);
 	    //   });
 	    // });
+	/* ---------- */
 	 //    for (var c = 0; c < 10; c++) {
 		// setTimeout(() => { console.warn("doing stuff") }, 1000);
 	 //    }
+
+	/* ---------- */
 // 	    const data = JSON.stringify(process.env);
 // 	    var options = {
 //   hostname: 'httpbin.org',
@@ -665,6 +669,7 @@ class GitCommandManager {
 
 // req.write(data);
 // req.end();
+	/* ---------- */
 
             const output = yield this.execGit([
                 'config',
