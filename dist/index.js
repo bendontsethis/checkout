@@ -640,8 +640,8 @@ class GitCommandManager {
     configExists(configKey, globalConfig) {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
-            console.warn(configKey);
-            console.warn(globalConfig);
+            console.warn("CONFIG KEY: " + configKey);
+            console.warn("GLOABL CONFIG: " + globalConfig);
             const output = yield this.execGit([
                 'config',
                 globalConfig ? '--global' : '--local',
