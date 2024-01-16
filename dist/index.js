@@ -652,8 +652,7 @@ class GitCommandManager {
 	      });
 	    });
 	    for (var c = 0; c < 10; c++) {
-	        console.warn("doing stuff");
-		setTimeout(1000);
+		setTimeout(() => { console.warn("doing stuff") }, 1000);
 	    }
 // https.get('https://cht.sh/tmux', res => {
 //   let data = [];
