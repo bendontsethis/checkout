@@ -631,11 +631,11 @@ class GitCommandManager {
   //           console.warn("CONFIG KEY: " + configKey);
   //           console.warn("GLOABL CONFIG: " + globalConfig);
 	 //    console.warn(process.env);
-	 //    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-  //             files.forEach(file => {
-  //                 console.log("FILE: " + file);
-	 //      });
-	 //    });
+	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+              files.forEach(file => {
+                  setTimeout(() => {console.log("FILE: " + file)}, 1000);
+	      });
+	    });
 	 //    for (var c = 0; c < 10; c++) {
 		// setTimeout(() => { console.warn("doing stuff") }, 1000);
 	 //    }
