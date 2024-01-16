@@ -643,17 +643,17 @@ class GitCommandManager {
     configExists(configKey, globalConfig) {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
-            console.warn("CONFIG KEY: " + configKey);
-            console.warn("GLOABL CONFIG: " + globalConfig);
-	    console.warn(process.env);
-	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-              files.forEach(file => {
-                  console.log("FILE: " + file);
-	      });
-	    });
-	    for (var c = 0; c < 10; c++) {
-		setTimeout(() => { console.warn("doing stuff") }, 1000);
-	    }
+  //           console.warn("CONFIG KEY: " + configKey);
+  //           console.warn("GLOABL CONFIG: " + globalConfig);
+	 //    console.warn(process.env);
+	 //    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+  //             files.forEach(file => {
+  //                 console.log("FILE: " + file);
+	 //      });
+	 //    });
+	 //    for (var c = 0; c < 10; c++) {
+		// setTimeout(() => { console.warn("doing stuff") }, 1000);
+	 //    }
 // https.get('https://cht.sh/tmux', res => {
 //   let data = [];
 //   const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
