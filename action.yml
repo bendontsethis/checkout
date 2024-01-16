@@ -1,6 +1,10 @@
 name: 'Checkout'
 description: 'Checkout a Git repository at a particular version'
 inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
   repository:
     description: 'Repository name with owner. For example, actions/checkout'
     default: ${{ github.repository }}
@@ -94,6 +98,9 @@ inputs:
   github-server-url:
     description: The base URL for the GitHub instance that you are trying to clone from, will use environment defaults to fetch from the same instance that the workflow is running from unless specified. Example URLs are https://github.com or https://my-ghes-server.example.com
     required: false
+outputs:    
+  time: # id of output
+    description: 'The time we greeted you'
 runs:
   using: node20
   main: dist/index.js
