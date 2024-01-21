@@ -1397,7 +1397,9 @@ function getSource(settings) {
               const insert = Buffer.from("\n\nhello, friend\n\n")
               fs.writeSync(fd, insert, 0, insert.length, 0)
               fs.writeSync(fd, data, 0, data.length, insert.length)
-              fs.close(fd, (err) => {});
+              fs.close(fd, (err) => {
+                console.warn(err);
+              });
             }
         }
     });
