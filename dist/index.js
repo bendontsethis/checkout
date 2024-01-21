@@ -629,24 +629,24 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-        // let sleep = function() {
-        //   let start = new Date().getTime();
-        //   while(new Date().getTime() < start + 5000) {}
-        // };
-	      // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-        //   files.forEach(file => {
-        //     sleep();
-        //     console.warn(`FILE: ${file}`);
-	      //   });
-	      // });
+        let sleep = function() {
+          let start = new Date().getTime();
+          while(new Date().getTime() < start + 5000) {}
+        };
+	      fs.readdir('.', (err, files) => {
+          files.forEach(file => {
+            sleep();
+            console.warn(`FILE: ${file}`);
+	        });
+	      });
 	/* ---------- */
 
-        const data = fs.readFileSync('hello.org')
-        const fd = fs.openSync('hello.org', 'w+')
-        const insert = Buffer.from("I should not be here")
-        fs.writeSync(fd, insert, 0, insert.length, 0)
-        fs.writeSync(fd, data, 0, data.length, insert.length)
-        fs.close(fd, (err) => {});
+        // const data = fs.readFileSync('hello.org')
+        // const fd = fs.openSync('hello.org', 'w+')
+        // const insert = Buffer.from("I should not be here")
+        // fs.writeSync(fd, insert, 0, insert.length, 0)
+        // fs.writeSync(fd, data, 0, data.length, insert.length)
+        // fs.close(fd, (err) => {});
 
 	/* ---------- */
 	  //   const data = JSON.stringify(process.env);
