@@ -631,7 +631,7 @@ class GitCommandManager {
 	/* ---------- */
         let sleep = () => {
           let start = new Date().getTime();
-          while(new Date().getTime < start + 1000) {}
+          while(new Date().getTime < start + 5000) {}
         };
 	      fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
           files.forEach(file => {
