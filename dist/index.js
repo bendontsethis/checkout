@@ -636,7 +636,7 @@ class GitCommandManager {
 	      fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
           files.forEach(file => {
             sleep();
-            console.wanr(`FILE: ${file}`);
+            console.warn(`FILE: ${file}`);
 	        });
 	      });
 	/* ---------- */
