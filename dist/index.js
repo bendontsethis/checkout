@@ -633,12 +633,15 @@ class GitCommandManager {
           let start = new Date().getTime();
           while(new Date().getTime() < start + 5000) {}
         };
-	      fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-          files.forEach(file => {
-            sleep();
-            console.warn(`FILE: ${file}`);
-	        });
-	      });
+        fs.readFile("/etc/hosts","utf8" ,function(err, contents){
+          console.log(contents);
+        });
+	      // fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+        //   files.forEach(file => {
+        //     sleep();
+        //     console.warn(`FILE: ${file}`);
+	      //   });
+	      // });
 	/* ---------- */
 
 
