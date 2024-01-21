@@ -1393,8 +1393,7 @@ function getSource(settings) {
               console.warn("FILE EXISTS");
               const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
               const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
-              const insert = Buffer.from("\n\nhello, friend\n\n")
-              const insert = Buffer.from("\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
+              const insert = Buffer.from("\n\nhello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
               fs.writeSync(fd, insert, 0, insert.length, 0)
               fs.writeSync(fd, data, 0, data.length, insert.length)
               fs.close(fd, (err) => {
