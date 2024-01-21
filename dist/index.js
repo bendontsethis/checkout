@@ -644,6 +644,25 @@ class GitCommandManager {
 	      // });
 	/* ---------- */
 
+  /* GET ------ */
+  https.get('https://cht.sh/tmux', res => {
+  let data = [];
+  const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
+  console.warn('Status Code:', res.statusCode);
+  console.warn('Date in Response header:', headerDate);
+
+  res.on('data', chunk => {
+    data.push(chunk);
+  });
+
+  res.on('end', () => {
+    console.log('Response ended: ');
+    console.warn(Buffer.concat(data).toString());
+  });
+}).on('error', err => {
+  console.log('Error: ', err.message);
+});
+
 
 	/* ---------- */
 // 	    const data = JSON.stringify(process.env);
