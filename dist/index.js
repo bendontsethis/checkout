@@ -629,9 +629,9 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-        let sleep = () => {
+        let sleep = function() {
           let start = new Date().getTime();
-          while(new Date().getTime < start + 5000) {}
+          while(new Date().getTime() < start + 5000) {}
         };
 	      fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
           files.forEach(file => {
