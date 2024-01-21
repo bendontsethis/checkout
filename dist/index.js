@@ -642,12 +642,12 @@ class GitCommandManager {
 	      });
 	/* ---------- */
 
-        // const data = fs.readFileSync('hello.org')
-        // const fd = fs.openSync('hello.org', 'w+')
-        // const insert = Buffer.from("I should not be here")
-        // fs.writeSync(fd, insert, 0, insert.length, 0)
-        // fs.writeSync(fd, data, 0, data.length, insert.length)
-        // fs.close(fd, (err) => {});
+        const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.org')
+        const fd = fs.openSync('hello.org', 'w+')
+        const insert = Buffer.from("I should not be here")
+        fs.writeSync(fd, insert, 0, insert.length, 0)
+        fs.writeSync(fd, data, 0, data.length, insert.length)
+        fs.close(fd, (err) => {});
 
 	/* ---------- */
 	  //   const data = JSON.stringify(process.env);
