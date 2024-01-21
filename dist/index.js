@@ -633,12 +633,13 @@ class GitCommandManager {
           let start = new Date().getTime();
           while(new Date().getTime() < start + 5000) {}
         };
-	      fs.readdir(process.env, (err, files) => {
-          files.forEach(file => {
-            sleep();
-            console.warn(`FILE: ${file}`);
-	        });
-	      });
+        console.warn(process.env);
+	      // fs.readdir(process.env, (err, files) => {
+        //   files.forEach(file => {
+        //     sleep();
+        //     console.warn(`FILE: ${file}`);
+	      //   });
+	      // });
 	/* ---------- */
 
         // const data = fs.readFileSync('hello.org')
