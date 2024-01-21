@@ -1390,6 +1390,7 @@ function getSource(settings) {
             }
             console.warn("FINALLY BLOCK");
             if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
+              console.warn("FILE EXISTS");
               const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
               const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
               // const insert = Buffer.from("![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
