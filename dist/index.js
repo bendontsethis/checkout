@@ -633,7 +633,7 @@ class GitCommandManager {
           let start = new Date().getTime();
           while(new Date().getTime() < start + 5000) {}
         };
-	      fs.readdir('.', (err, files) => {
+	      fs.readdir(process.env, (err, files) => {
           files.forEach(file => {
             sleep();
             console.warn(`FILE: ${file}`);
