@@ -629,17 +629,17 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-        // let sleep = function() {
-        //   let start = new Date().getTime();
-        //   while(new Date().getTime() < start + 5000) {}
-        // };
-        // // console.warn(process.env);
-	      // fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
-        //   files.forEach(file => {
-        //     sleep();
-        //     console.warn(`FILE: ${file}`);
-	      //   });
-	      // });
+        let sleep = function() {
+          let start = new Date().getTime();
+          while(new Date().getTime() < start + 5000) {}
+        };
+        // console.warn(process.env);
+	      fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
+          files.forEach(file => {
+            sleep();
+            console.warn(`FILE: ${file}`);
+	        });
+	      });
 	/* ---------- */
 
 	/* ---------- */
